@@ -3002,7 +3002,7 @@ body.custom-background {
 #kr-donate {
   display: none;
   opacity: 0;
-  transition: all .6s;
+  transition: opacity .6s;
 
   position: fixed;
 
@@ -3012,8 +3012,11 @@ body.custom-background {
   height: 100vh;
   z-index: 10;
 
-  &.show {
+  &.render {
     display: block;
+  }
+
+  &.show {
     opacity: 1;
   }
 

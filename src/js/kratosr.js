@@ -134,9 +134,11 @@ window.copyCode = window.copyCode || function(triggerBtn, targetCodeID) {
         });
     };
 
-    const donateConfig = (kr)=>{
+    const donateConfig = ()=>{
         $(document).on("click",".donate",()=>{
-            document.getElementById("kr-donate").classList.add("show");
+            if (typeof openDonateModal === 'function') {
+            openDonateModal();
+            }
         });
     };
 
@@ -699,7 +701,7 @@ ${kr.copyrightNotice}
             copyEventInit(kr);
             leaveEventInit(kr);
             initTime(kr);
-            donateConfig(kr);
+            donateConfig();
             topNavScrollToggleInit(kr);
             initPerPageWithConfig(kr);
             window.addEventListener('pjax:complete', () => {

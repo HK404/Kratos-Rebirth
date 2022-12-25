@@ -58,8 +58,20 @@
       document.getElementById("donate-notice").innerText = method.notice;
     };
 
+    const openDonateModal = () => {
+      const modal = document.getElementById("kr-donate");
+      modal.classList.add("render");
+      requestAnimationFrame(() => {
+        modal.classList.add("show");
+      });
+    };
+
     const closeDonateModal = () => {
-      document.getElementById("kr-donate").classList.remove("show");
+      const modal = document.getElementById("kr-donate");
+      modal.classList.remove("show");
+      setTimeout(() => {
+        modal.classList.remove("render");
+      }, 600);
     };
 
     // Initialize with first method
