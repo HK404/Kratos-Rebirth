@@ -26,9 +26,6 @@
 <% } %>
 <%- js_theme_cdn('js/kratosr.min.js', {defer: true}) %>
 <%- js_theme_cdn('js/pjax.min.js', {defer: true}) %>
-<% if (page.type !== '404' && theme.posts.donate) { %>
-    <%- js_npm_cdn('layui-src', 'dist/layui.all.js', {defer: true}) %>
-<% } %>
 <%- theme.site_analytics %>
 
 <!-- Extra support for third-party plguins  -->
