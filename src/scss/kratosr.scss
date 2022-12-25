@@ -3105,6 +3105,7 @@ body.custom-background {
               cursor: pointer;
               width: 30px;
               height: 30px;
+              border-radius: 100%;
             }
 
             .method-icon {
@@ -3113,7 +3114,6 @@ body.custom-background {
               align-items: center;
               border-width: 1px;
               border-style: solid;
-              border-radius: 100%;
             }
 
           }
