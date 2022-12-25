@@ -78,11 +78,22 @@ psr:
 # Post Page 文章页配置
 posts:
   show_cc: true
-  donate: false
-  share: true
   comments: 
     provider: ''
     enableBGImage: false
+
+# Donate config 捐赠相关配置
+donate:
+  enable: []
+  # - post
+  # - page
+  method: []
+
+# Share config 分享相关配置
+share:
+  enable: []
+  # - post
+  # - page
 
 # Disqus [Disqus](https://disqus.com) 评论相关
 disqus:
@@ -186,8 +197,6 @@ jsconfig:
       baseUrl: null # 使用默认值（不单独配置），将跟随 vendors 中的相关设定选择是否使用 cdn
       filenameTemplate: "thumb_{no}.webp" 
     createTime: "2018/05/06 17:03:12"
-    donateBtn: "支持我~"
-    scanNotice: "扫一扫，好不好？"
     qr_alipay: "/images/alipayqr.webp"
     qr_wechat: "/images/wechatpayqr.webp"
     siteLeaveEvent: false

@@ -73,7 +73,7 @@
   <% } %>
   <!-- 不得不预先加载的一些JS文件 -->
   <%- js_npm_cdn('jquery', 'dist/jquery.min.js') %>
-  <% if (theme.posts.share) { %>
+  <% if (theme.donate?.enable?.length > 0 || theme.share?.enable?.length > 0) { %>
     <%- js_npm_cdn('qrcode_js', 'qrcode.min.js') %>
   <% } %>
   <% if (theme.customStyles) { %>

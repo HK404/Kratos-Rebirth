@@ -67,12 +67,14 @@
             </div>
         <% } %>
         <footer class="kratos-entry-footer clearfix">
-            <% if (theme.posts.donate || theme.posts.share) { %>
+            <% const isDonateEnabled = theme.donate?.enable?.includes('post'); %>
+            <% const isShareEnabled = theme.share?.enable?.includes('post'); %>
+            <% if (isDonateEnabled || isShareEnabled) { %>
                 <div class="post-like-donate text-center clearfix" id="post-like-donate">
-                <% if (theme.posts.donate) { %>
+                <% if (isDonateEnabled) { %>
                     <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> <%- __('reward') %></a>
                 <% } %>
-                <% if (theme.posts.share) { %>
+                <% if (isShareEnabled) { %>
                     <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> <%- __('share') %></a>
                     <%- partial('_tools/share', {page: page}) %>
                 <% } %>

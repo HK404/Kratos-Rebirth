@@ -6,6 +6,19 @@
             <div itemprop="articleBody"><%- page.content %></div>
         </div>
         <footer class="kratos-entry-footer clearfix">
+            <% const isDonateEnabled = theme.donate?.enable?.includes('page'); %>
+            <% const isShareEnabled = theme.share?.enable?.includes('page'); %>
+            <% if (isDonateEnabled || isShareEnabled) { %>
+                <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                <% if (isDonateEnabled) { %>
+                    <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> <%- __('reward') %></a>
+                <% } %>
+                <% if (isShareEnabled) { %>
+                    <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> <%- __('share') %></a>
+                    <%- partial('_tools/share', {page: page}) %>
+                <% } %>
+                </div>
+            <% } %>
             <div class="footer-tag clearfix">
                 <div class="pull-date">
                     <time datetime="<%= date_xml(page.updated) %>" itemprop="dateModified"><%- __('last_modify') %><%- date(page.updated) %></time>

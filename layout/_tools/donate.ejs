@@ -1,0 +1,68 @@
+<div id="kr-donate">
+  <div class="donate-background" onclick="closeDonateModal()"></div>
+  <div class="donate-wrapper">
+    <div class="donate-modal">
+      <div class="header">
+        <div class="header-icon">
+          <i class="fa fa-heart"></i>
+        </div>
+        <h3 id="donate-name">
+          <!-- Method name here -->
+        </h3>
+        <div onclick="closeDonateModal()" class="donate-close-button header-icon icon-button">
+          <i class="fa fa-close"></i>
+        </div>
+      </div>
+      <div class="content">
+        <div id="donate-qr">
+          <!-- QR Code here -->
+        </div>
+        <p id="donate-notice">
+          <!-- Notice here -->
+        </p>
+      </div>
+      <div class="footer">
+        <ul class="donate-methods-list">
+          <% for (const method of theme.donate.method) { %>
+            <li onclick='setDonate(<%- JSON.stringify(method) %>)'>
+              <% if (method.icon.type === "html") { %>
+                <%- method.icon.content %>
+              <% } else if (method.icon.type === "image") { %>
+                <img class="method-image" src="<%- method.icon.content %>" />
+              <% } else if (method.icon.type === "icon") { %>
+                <span class="method-icon icon-button">
+                  <i class="<%- method.icon.content %>"></i>
+                </span>
+              <% } %>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script>
+    let currentDonateQRCode = null;
+    const setDonate = (method) => {
+      if (currentDonateQRCode === null) {
+          currentDonateQRCode = new QRCode("donate-qr", {
+          text: method.link,
+          width: 300,
+          height: 300,
+          correctLevel : QRCode.CorrectLevel.H
+        });
+      } else {
+        currentDonateQRCode.makeCode(method.link);
+      }
+      document.getElementById("donate-name").innerText = method.name;
+      
+      document.getElementById("donate-notice").innerText = method.notice;
+    };
+
+    const closeDonateModal = () => {
+      document.getElementById("kr-donate").classList.remove("show");
+    };
+
+    // Initialize with first method
+    setDonate(<%- JSON.stringify(theme.donate.method[0]) %>);
+  </script>
+</div>

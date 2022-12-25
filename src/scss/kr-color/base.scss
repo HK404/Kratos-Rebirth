@@ -103,7 +103,7 @@ ul.kratos-post-meta {
 }
 
 .kratos-post-content {
-    p, table td {
+    &, p, table td {
     color: $text;
     }
 }
@@ -345,4 +345,23 @@ span.mjx-chtml.MJXc-display {
 
 .post-comments.bg-image textarea {
     background: $comment-background-image right bottom no-repeat!important;
+}
+
+
+/******************* Donate ********************/
+#kr-donate {
+    .donate-modal {
+        color: $text_alt;
+        background-color: $tag_background;
+
+        .icon-button {
+            color: $link;
+            background-color: $tag_background;
+
+            &:hover {
+                color: $tag_background;
+                background-color: $link;
+            }
+        }
+    }
 }
